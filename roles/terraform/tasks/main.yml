@@ -1,0 +1,6 @@
+- name: Install formulas
+  community.general.homebrew:
+    name:
+      - terraform
+      - terraform-docs
+    state: present

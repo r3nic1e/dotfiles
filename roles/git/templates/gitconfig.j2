@@ -1,0 +1,34 @@
+[user]
+	name = Sviatoslav Dumchenko
+	email = r3nic1e@me.com
+
+[push]
+	default = current
+[pager]
+	branch = false
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+[branch]
+	autoSetupMerge = true
+[checkout]
+	workers = 0
+[gpg]
+	program = {{ homebrew_prefix }}/bin/gpg
+
+{% for dir, partial in git_configs | items %}
+[includeIf "gitdir:~/{{ dir }}/"]
+	path = ~/.gitconfig.{{ partial }}
+{% endfor %}
+
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[merge]
+	conflictstyle = diff3
+

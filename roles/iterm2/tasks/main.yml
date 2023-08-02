@@ -1,0 +1,4 @@
+- name: Install casks
+  community.general.homebrew_cask:
+    name: iterm2
+    install_options: --no-quarantine

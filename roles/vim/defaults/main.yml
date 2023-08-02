@@ -1,0 +1,26 @@
+vim_plugins:
+  - https://github.com/dense-analysis/ale.git
+  - https://github.com/pearofducks/ansible-vim
+  - https://github.com/raimondi/delimitmate
+  - https://github.com/earthly/earthly.vim.git
+  - https://github.com/Yggdroot/indentLine
+  - https://github.com/itchyny/lightline.vim
+  - https://github.com/joshdick/onedark.vim
+  - https://github.com/tobyS/pdv.git
+  - https://github.com/andrewradev/splitjoin.vim
+  - https://github.com/altercation/vim-colors-solarized
+  - https://github.com/tpope/vim-commentary
+  - https://github.com/ryanoasis/vim-devicons.git
+  - https://github.com/tpope/vim-fugitive
+  - https://github.com/airblade/vim-gitgutter
+  - https://github.com/fatih/vim-go.git
+  - https://github.com/jvirtanen/vim-hcl.git
+  - https://github.com/google/vim-jsonnet
+  - https://github.com/terryma/vim-multiple-cursors
+  - https://github.com/roxma/vim-paste-easy
+  - https://github.com/sheerun/vim-polyglot
+  - https://github.com/tpope/vim-sleuth
+  - https://github.com/lifepillar/vim-solarized8
+  - https://github.com/tpope/vim-speeddating
+  - https://github.com/hashivim/vim-terraform.git
+  - https://github.com/bronson/vim-trailing-whitespace

@@ -1,0 +1,45 @@
+- hosts: localhost
+  roles:
+    - name: homebrew
+      tags:
+        - homebrew
+
+    - name: git
+      tags:
+        - git
+
+    - name: iterm2
+      tags:
+        - iterm2
+
+    - name: zsh
+      tags:
+        - zsh
+
+    - name: vim
+      tags:
+        - vim
+
+    - name: gpg
+      tags:
+        - gpg
+
+    - name: docker
+      tags:
+        - docker
+
+    - name: kubernetes
+      tags:
+        - kubernetes
+
+    - name: powerline
+      tags:
+        - powerline
+
+    - name: devtools
+      tags:
+        - devtools
+
+    - name: terraform
+      tags:
+        - terraform

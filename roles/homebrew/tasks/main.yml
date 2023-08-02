@@ -1,0 +1,26 @@
+- name: Check if homebrew is installed
+  ansible.builtin.stat:
+    path: "{{ homebrew_binary_path }}"
+  register: homebrew_binary_stat
+
+- ansible.builtin.import_tasks: install.yml
+  when: not homebrew_binary_stat.stat.exists
+
+- ansible.builtin.set_fact:
+    homebrew_prefix: "{{ homebrew_prefix }}"
+
+- name: Install taps
+  community.general.homebrew_tap:
+    name: "{{ item.name }}"
+    url: "{{ item.url | default(omit) }}"
+  with_items: "{{ homebrew_taps }}"
+
+- name: Install casks
+  community.general.homebrew_cask:
+    name: "{{ homebrew_casks }}"
+    install_options: --no-quarantine
+
+- name: Install formulas
+  community.general.homebrew:
+    name: "{{ homebrew_formulas }}"
+    state: present

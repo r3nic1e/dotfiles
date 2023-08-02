@@ -1,0 +1,55 @@
+_homebrew_prefix:
+  arm64: /opt/homebrew
+  amd64: /usr/local
+
+homebrew_prefix: "{{ _homebrew_prefix[ansible_machine] }}"
+homebrew_binary_path: "{{ homebrew_prefix }}/bin/brew"
+
+homebrew_taps:
+  - name: lencx/chatgpt
+    url: https://github.com/lencx/ChatGPT.git
+
+homebrew_casks:
+  - alfred
+  - binance
+  - chatgpt
+  - discord
+  - google-chrome
+  - keepassxc
+  - mactracker
+  - notion
+  - qbittorrent
+  - rar
+  - spotify
+  - telegram
+  - vlc
+
+homebrew_formulas:
+  - base64
+  - brotli
+  - cjson
+  - conftest
+  - curl
+  - curlie
+  - diffutils
+  - ffmpeg
+  - gnu-sed
+  - gnu-tar
+  - iperf3
+  - ncdu
+  - node
+  - oniguruma
+  - opa
+  - openssl@3
+  - pandoc
+  - psutils
+  - pv
+  - pwgen
+  - qrencode
+  - rsync
+  - the_silver_searcher
+  - tree
+  - unbound
+  - unzip
+  - wget
+  - xz

@@ -1,0 +1,9 @@
+- name: Install homebrew
+  ansible.builtin.command: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  environment:
+    NONINTERACTIVE: "1"
+
+- name: Add homebrew line to .zprofile
+  ansible.builtin.lineinfile:
+    path: "{{ ansible_user_dir }}/.zprofile"
+    line: 'eval "$({{ homebrew_binary_path }} shellenv)"'

@@ -1,0 +1,10 @@
+- name: Install casks
+  community.general.homebrew_cask:
+    name: docker
+    install_options: --no-quarantine
+
+- name: Install formulas
+  community.general.homebrew:
+    name:
+      - dive
+    state: present

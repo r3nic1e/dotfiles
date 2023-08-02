@@ -1,0 +1,26 @@
+- name: Install tap
+  community.general.homebrew_tap:
+    name: jorgelbg/tap # pinentry-touchid
+
+- name: Install formulas
+  community.general.homebrew:
+    name:
+      - gnupg
+      - pinentry-mac
+      - pinentry-touchid
+    state: present
+
+- name: Install config
+  ansible.builtin.template:
+    src: gpg-agent.conf.j2
+    dest: "{{ ansible_user_dir }}/.gnupg/gpg-agent.conf"
+
+- name: Forbid pinentry-mac saving to keychain
+  community.general.osx_defaults:
+    domain: org.gpgtools.common
+    key: DisableKeychain
+    value: true
+    type: bool
+
+- name: Fix pinentry
+  ansible.builtin.command: pinentry-touchid -fix

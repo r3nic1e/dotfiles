@@ -1,0 +1,4 @@
+- name: Download font
+  ansible.builtin.get_url:
+    url: "{{ powerline_git_base_url }}/{{ powerline_font_name | urlencode }}"
+    dest: "{{ powerline_fonts_dir }}/{{ powerline_font_name }}"

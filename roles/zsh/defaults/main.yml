@@ -1,0 +1,14 @@
+ohmyzsh_dir: "{{ ansible_user_dir }}/.oh-my-zsh"
+
+ohmyzsh_theme_repo: https://github.com/r3nic1e/r3nic1e-zsh-theme
+ohmyzsh_theme_dir: "{{ ansible_user_dir }}/github.com/r3nic1e/r3nic1e-zsh-theme"
+
+ohmyzsh_plugins:
+  async: https://github.com/mafredri/zsh-async
+  autoupdate: https://github.com/TamCore/autoupdate-oh-my-zsh-plugins
+  you-should-use: https://github.com/MichaelAquilina/zsh-you-should-use.git
+  zsh-autocomplete: https://github.com/marlonrichert/zsh-autocomplete.git
+  zsh-autopair: https://github.com/hlissner/zsh-autopair
+  zsh-autosuggestions: https://github.com/zsh-users/zsh-autosuggestions
+  zsh-iterm-touchbar: https://github.com/iam4x/zsh-iterm-touchbar
+  zsh-syntax-highlighting: https://github.com/zsh-users/zsh-syntax-highlighting.git

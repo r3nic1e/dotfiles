@@ -1,0 +1,31 @@
+- name: Install neovim
+  community.general.homebrew:
+    name:
+      - neovim
+
+- name: Create vim->neovim symlink
+  ansible.builtin.file:
+    path: /usr/local/bin/vim
+    src: "{{ homebrew_prefix }}/bin/nvim"
+
+- name: Prepare neovim config dir
+  ansible.builtin.file:
+    path: "{{ ansible_user_dir }}/.config/nvim"
+    state: directory
+    recurse: true
+
+- name: Copy configs
+  ansible.builtin.template:
+    src: "{{ item.key }}.j2"
+    dest: "{{ ansible_user_dir }}/{{ item.value }}"
+  with_dict:
+    vimrc: .vimrc
+    init.vim: .config/nvim/init.vim
+
+- name: Download vim plugins
+  ansible.builtin.git:
+    repo: "{{ item }}"
+    dest: "{{ ansible_user_dir }}/.vim/pack/plugins/start/{{ item | basename | regex_replace('\\.git$', '') }}"
+    update: false
+    accept_newhostkey: true
+  with_items: "{{ vim_plugins }}"

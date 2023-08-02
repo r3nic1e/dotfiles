@@ -1,0 +1,45 @@
+- name: Install taps
+  community.general.homebrew_tap:
+    name: "{{ item.name }}"
+    url: "{{ item.url | default(omit) }}"
+  with_items:
+    - name:
+        - homeport/tap # dyff
+        - mike-engel/jwt-cli # jwt-cli
+    - name: miniscruff/changie
+      url: https://github.com/miniscruff/changie
+
+- name: Install casks
+  community.general.homebrew_cask:
+    name:
+      - jetbrains-toolbox
+      - visual-studio-code
+    install_options: --no-quarantine
+
+- name: Install formulas
+  community.general.homebrew:
+    name:
+      - awscli
+      - azure-cli
+      - bfg
+      - buf
+      - changie
+      - dog
+      - dos2unix
+      - dyff
+      - gh
+      - glab
+      - glow
+      - go
+      - gofumpt
+      - golangci-lint
+      - gopls
+      - goreleaser
+      - jq
+      - jwt-cli
+      - pre-commit
+      - python-yq
+      - python
+      - rust
+      - sqlite
+    state: present

@@ -1,0 +1,28 @@
+- name: Install taps
+  community.general.homebrew_tap:
+    name:
+      - helmwave/tap
+      - norwoodj/tap # helm-docs
+
+- name: Install formulas
+  community.general.homebrew:
+    name:
+      - chart-testing
+      - checkov
+      - helm
+      - helm-docs
+      - helmwave
+      - k9s
+      - kind
+      - krew
+      - kubectx
+      - kubernetes-cli
+
+- name: Get kind clusters
+  ansible.builtin.command: kind get clusters
+  changed_when: false
+  register: kind_clusters
+
+- name: Create kind cluster
+  ansible.builtin.command: kind create cluster
+  when: kind_clusters.stdout == ""
